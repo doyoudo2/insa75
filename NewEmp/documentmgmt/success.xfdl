@@ -11,7 +11,7 @@
                   <Layout>
                     <Static id="Static00" taborder="0" text="년도" left="105" top="10" width="30" height="30" textAlign="left" onclick="Div00_Div00_Static00_onclick"/>
                     <Combo id="YearCombo" taborder="1" left="20" top="10" width="80" height="30" index="-1" innerdataset="ds_year" codecolumn="NAME" datacolumn="VALUE" text="" displaynulltext="선택" onitemchanged="Div00_Div00_YearCombo_onitemchanged"/>
-                    <Button id="FindBtn" taborder="2" left="285" top="13" width="25" height="25" color="aliceblue" background="url(&quot;imagerc::zoom.jpg&quot;) no-repeat center center /cover" border="0px none" cursor="pointer" onclick="Div00_Div00_FindBtn_onclick" text=""/>
+                    <Button id="FindBtn" taborder="2" left="285" top="10" width="55" height="30" onclick="Div00_Div00_FindBtn_onclick" text="조회"/>
                     <Combo id="BangiCombo" taborder="3" text="선택" left="130" top="10" width="150" height="30" value="" index="-1" innerdataset="ds_half" codecolumn="NAME" datacolumn="VALUE" displaynulltext="선택"/>
                   </Layout>
                 </Layouts>
