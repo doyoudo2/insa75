@@ -368,7 +368,7 @@ this.fn_callback = function (trID , ErrorCode , ErrorMsg)
 	
 	if(trID == "termsdeleteID"){
 		if(ErrorCode!=0){
-			return this.alert("삭제 실패 : "+ errorMsg );
+			return this.alert("삭제 실패 : "+ ErrorMsg );
 		}
 		this.alert("신입사원 채용 정보를 삭제하였습니다.");
 		this.reload();
@@ -400,6 +400,23 @@ this.Div_Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo
 	var args = "workplaceCode='"+workplaceCode+"' dept='"+dept+"' year='"+year+"' half='"+half+"'";
 	var callback = "fn_callback";
 	this.transaction(id, url, resData, reqData, args, callback);
+};
+
+/*/취소 버튼/*/
+this.Div_resetButton_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.Div.form.Spin00.set_value("20"); //set_value : value에 원하는 값 넣을 수 있음
+	this.Div.form.Spin00_00.set_value("30");
+	this.Div.form.Spin00_01.set_value("2022");
+	
+	this.Div.form.Edit00.set_value("");
+	
+	this.Div.form.Combo01.set_value("");
+	this.Div.form.Combo02.set_value("");
+	this.Div.form.Combo00.set_value("");
+	
+	this.Div.form.FileUpload.deleteItem(0); //FileUpload 에서 인수로 전달된 인덱스의 아이템을 삭제
+	this.reload();
 };]]></Script>
     <Objects>
       <Dataset id="LAST_SCHOOL">
