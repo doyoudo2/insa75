@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
   <Form id="final" width="1280" height="720" titletext="New Form">
     <Layouts>
@@ -11,7 +11,7 @@
                   <Layout>
                     <Static id="Static00" taborder="0" text="년도" left="105" top="10" width="30" height="30" textAlign="left" onclick="Div00_Div00_Static00_onclick"/>
                     <Combo id="YearCombo" taborder="1" left="20" top="10" width="80" height="30" index="-1" innerdataset="ds_year" codecolumn="name" datacolumn="value" text="" displaynulltext="선택"/>
-                    <Button id="FindBtn" taborder="2" left="285" top="13" width="25" height="25" color="aliceblue" border="0px none" cursor="pointer" onclick="Div00_Div00_FindBtn_onclick" background="white"/>
+                    <Button id="FindBtn" taborder="2" left="285" top="9" width="75" height="32" onclick="Div00_Div00_FindBtn_onclick" text="조회"/>
                     <Combo id="BangiCombo" taborder="3" text="선택" left="130" top="10" width="150" height="30" value="" index="-1" innerdataset="ds_half" codecolumn="name" datacolumn="value" displaynulltext="선택"/>
                     <Button id="ApprovalBtn" taborder="4" text="승인" top="38" height="40" onclick="approvalBtn" width="130" right="450"/>
                     <Button id="CancelBtn" taborder="5" text="승인취소" top="38" height="40" onclick="cancelBtn" width="130" right="310"/>
@@ -92,8 +92,6 @@ this.Div00_Div00_FindBtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEv
 		//	workplaceCode='"+nexacro.getApplication().Div00.form.Div00.form.Edit00.value+"'",
 		"");
 };
-
-
 // 승인
 this.approvalBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
@@ -104,7 +102,6 @@ this.approvalBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 				this.ds_list.setColumn(i,"APPROVAL_STATUS","승인");
 			}
 		}
-
 	if(this.fn_isCkd()){this.alert("항목 선택하세요");return;}//경고창 리턴	
 	
 	for(i=0;i<count;i++){
@@ -118,7 +115,6 @@ this.approvalBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 		}	
 	
 };
-
 //체크여부 확인 
 this.fn_isCkd=function(){
 	var count = this.ds_list.getCount();	
@@ -128,10 +124,6 @@ this.fn_isCkd=function(){
 	}
 	return isCkd;
 }
-
-
-
-
 //승인취소
 this.cancelBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
@@ -149,7 +141,6 @@ this.cancelBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	
 	// 조건절 if에 변수 
 	if(this.fn_isCkd()){this.alert("항목 선택하세요");return;}//경고창 리턴
-
 	for(i=0;i<count;i++){
 		if(this.ds_list.getColumn(i,"CHK")==1){
 			if(!this.ds_list.getColumn(i,"APPROVAL_STATUS")=="승인"){
@@ -159,7 +150,6 @@ this.cancelBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 		}
 	}	
 };
-
 //반려
 this.returnBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
@@ -175,7 +165,6 @@ this.returnBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 		}
 	}
 };
-
 //확정 
 this.confirmBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
@@ -191,10 +180,7 @@ this.confirmBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 			"fn_callback");
 	}
 };
-
 /******************************************************************/
-
-
 // gridHead 이벤트
 this.grid_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
@@ -216,7 +202,6 @@ this.grid_onheadclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 		obj.setCellProperty('Head',0,'text',num);
 	}
 };
-
 // gridcell 이벤트
 this.grid_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
@@ -241,7 +226,6 @@ this.grid_oncellclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 		obj.setCellProperty('Head',0,'text',"0");
 	}
 };
-
 //엑셀저장
 this.excelBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
@@ -260,14 +244,10 @@ this.excelBtn = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 	var intExportedItem = this.exportObj.exportData();
 	trace("Number of Exported Item: " + intExportedItem);
 };
-
 this.Export00_onsuccess = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
 {    trace("Export00_onsuccess");    }
-
 this.Export00_onerror = function(obj:ExcelExportObject, e:nexacro.ExcelExportEventInfo)
 {    trace("Export00_onerror");		}
-
-
 ]]></Script>
     <Objects>
       <Dataset id="ds_year">
