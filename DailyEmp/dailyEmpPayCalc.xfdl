@@ -295,6 +295,12 @@ this.Div00_Grid00_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClick
 		this.ds_dayCalcDetail.addRow(date);
 		this.ds_dayCalcDetail.setColumn(date, "DEMP_CODE", dempcode);
 		this.ds_dayCalcDetail.setColumn(date, "PAY_STAT_CODE", paystatcode);
+		
+		this.ds_dayCalcDetail.setColumn(date, "IS_TAXFREE", this.ds_dayCalcTarget.getColumn(e.row, "IS_TAXFREE"));
+		this.ds_dayCalcDetail.setColumn(date, "IS_EMPINSURANCE", this.ds_dayCalcTarget.getColumn(e.row, "IS_EMPINSURANCE"));
+		this.ds_dayCalcDetail.setColumn(date, "IS_NATIONALANNUITY", this.ds_dayCalcTarget.getColumn(e.row, "IS_NATIONALANNUITY"));
+		this.ds_dayCalcDetail.setColumn(date, "IS_HEALTHINSURANCE", this.ds_dayCalcTarget.getColumn(e.row, "IS_HEALTHINSURANCE"));
+		
 		this.ds_dayCalcDetail.setColumn(date, "CALC_DATE", datelist[date]);
 		this.ds_dayCalcDetail.setColumn(date, "CALC_DAY", datelist[date]);
 		this.ds_dayCalcDetail.setColumn(date, "CALC_TIME", "08:00");
@@ -339,6 +345,12 @@ this.Div00_00_Grid00_onenterdown = function(obj:nexacro.Grid,e:nexacro.GridEditE
 {
 	var dempCode = this.ds_dayCalcDetail.getColumn(e.row, "DEMP_CODE");
 	var payStatCode = this.ds_dayCalcDetail.getColumn(e.row, "PAY_STAT_CODE");
+	
+	var isTaxfree = this.ds_dayCalcDetail.getColumn(e.row, "IS_TAXFREE");
+	var isEmpinsurance = this.ds_dayCalcDetail.getColumn(e.row, "IS_EMPINSURANCE");
+	var isNationalannuity = this.ds_dayCalcDetail.getColumn(e.row, "IS_NATIONALANNUITY");
+	var isHealthinsurance = this.ds_dayCalcDetail.getColumn(e.row, "IS_HEALTHINSURANCE");
+	
 	var sumTax = this.ds_dayCalcDetail.getSum("CALC_TAX");
 	var sumTaxAdd = this.ds_dayCalcDetail.getSum("CALC_TAX_ADD");
 	var sumTaxExt = this.ds_dayCalcDetail.getSum("CALC_TAX_EXT");
@@ -353,6 +365,10 @@ this.Div00_00_Grid00_onenterdown = function(obj:nexacro.Grid,e:nexacro.GridEditE
 		"ds_dayCalcTotal=ds_dayCalcTotal",
 		"dempCode="+dempCode
 		+" paystatcode="+payStatCode
+		+" isTaxfree="+isTaxfree
+		+" isEmpinsurance="+isEmpinsurance
+		+" isNationalannuity="+isNationalannuity
+		+" isHealthinsurance="+isHealthinsurance
 		+" sumTax="+sumTax
 		+" sumTaxAdd="+sumTaxAdd
 		+" sumTaxExt="+sumTaxExt
