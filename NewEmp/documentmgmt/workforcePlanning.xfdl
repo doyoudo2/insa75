@@ -167,7 +167,7 @@ this.Div_GoogleMap_onclick = function(obj:nexacro.GoogleMap,e:nexacro.GoogleMapC
 /*NRE에서 지원X 크롬 작동O*/
 this.Div_ShowMapButton_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	//this.googleMapAPIKey = "AIzaSyAsYvZBMu0P0w3WR2BU3l7i3phXfJGNZO8";
+	this.Div.form.GoogleMap.set_apikey( "AIzaSyAsYvZBMu0P0w3WR2BU3l7i3phXfJGNZO8" ); //APIKey설정하는 속성, load() 최초 실행 시 한번 적용
 	
 	this.Div.form.GoogleMap.set_showzoom(true); //지도상에 줌 버튼을 표시
 	this.Div.form.GoogleMap.set_apikey(nexacro.getApplication().googleMapAPIKey); 

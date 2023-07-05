@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Holiday" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" width="1280">
+        <Div id="Div00" taborder="0" text="Div00" left="0.78%" top="1.39%" width="71.09%" height="77.5%"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
